@@ -1,43 +1,29 @@
-// Simple Particle Animation
-const canvas = document.createElement('canvas');
-document.getElementById('particles').appendChild(canvas);
-const ctx = canvas.getContext('2d');
+const particles = document.getElementById("particles");
 
-let particles = [];
-const colors = ['#00ffff', '#38bdf8', '#14b8a6'];
-
-function resize() {
-  canvas.width = innerWidth;
-  canvas.height = innerHeight;
-}
-resize();
-window.addEventListener('resize', resize);
-
-for (let i = 0; i < 80; i++) {
-  particles.push({
-    x: Math.random() * canvas.width,
-    y: Math.random() * canvas.height,
-    r: Math.random() * 3 + 1,
-    dx: (Math.random() - 0.5) * 0.8,
-    dy: (Math.random() - 0.5) * 0.8,
-    color: colors[Math.floor(Math.random() * colors.length)],
-  });
+for (let i = 0; i < 60; i++) {
+  const dot = document.createElement("span");
+  dot.classList.add("dot");
+  dot.style.left = Math.random() * 100 + "vw";
+  dot.style.top = Math.random() * 100 + "vh";
+  dot.style.animationDuration = 3 + Math.random() * 7 + "s";
+  particles.appendChild(dot);
 }
 
-function draw() {
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
-  particles.forEach((p) => {
-    ctx.beginPath();
-    ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-    ctx.fillStyle = p.color;
-    ctx.fill();
+const style = document.createElement('style');
+style.innerHTML = `
+  .dot {
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    background: #00ffff;
+    border-radius: 50%;
+    opacity: 0.6;
+    animation: floatUp linear infinite;
+  }
 
-    p.x += p.dx;
-    p.y += p.dy;
-
-    if (p.x < 0 || p.x > canvas.width) p.dx *= -1;
-    if (p.y < 0 || p.y > canvas.height) p.dy *= -1;
-  });
-  requestAnimationFrame(draw);
-}
-draw();
+  @keyframes floatUp {
+    from { transform: translateY(0); opacity: 0.6; }
+    to { transform: translateY(-100vh); opacity: 0; }
+  }
+`;
+document.head.appendChild(style);

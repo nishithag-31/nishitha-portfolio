@@ -12,6 +12,7 @@
     background: linear-gradient(to bottom right, var(--bg-start), var(--bg-end));
     color: var(--text);
     overflow-x: hidden;
+    scroll-behavior: smooth;
   }
   
   /* Floating particles background */
@@ -29,9 +30,36 @@
   .hero {
     height: 100vh;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
+    padding: 40px;
+  }
+  
+  .name {
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--teal);
+    text-shadow: 0 0 15px var(--teal);
+  }
+  
+  .title {
+    font-size: 1.3rem;
+    margin-bottom: 25px;
+    opacity: 0.8;
+  }
+  
+  .contact-links a {
+    text-decoration: none;
+    color: var(--text);
+    margin: 0 10px;
+    transition: 0.3s ease;
+  }
+  
+  .contact-links a:hover {
+    color: var(--teal);
+    text-shadow: 0 0 10px var(--teal);
   }
   
   .glass-card {
@@ -45,33 +73,67 @@
   }
   
   .glass-card:hover {
-    transform: scale(1.05);
+    transform: scale(1.03);
     box-shadow: 0 8px 40px rgba(0, 255, 255, 0.5);
   }
   
-  .btn-primary,
-  .btn-secondary {
+  /* Buttons */
+  .btn {
     text-decoration: none;
     padding: 10px 25px;
     border-radius: 30px;
     border: 1px solid var(--teal);
     color: var(--teal);
-    margin: 0 8px;
+    margin: 10px;
+    display: inline-block;
     transition: 0.3s ease;
   }
   
-  .btn-primary:hover {
+  .btn:hover {
     background: var(--teal);
+    color: #0f172a;
+    box-shadow: 0 0 15px var(--teal);
+  }
+  
+  .btn-alt {
+    border-color: #ffffff;
+    color: #ffffff;
+  }
+  
+  .btn-alt:hover {
+    background: #ffffff;
     color: #0f172a;
   }
   
   /* Section Styling */
+  main {
+    padding: 20px;
+  }
+  
   section {
     margin: 40px auto;
     max-width: 900px;
     background: rgba(255, 255, 255, 0.05);
-    padding: 20px;
+    padding: 25px 35px;
     border-radius: 15px;
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.1);
+  }
+  
+  section h2 {
+    color: var(--teal);
+    text-shadow: 0 0 10px var(--teal);
+    margin-bottom: 10px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    padding-bottom: 5px;
+  }
+  
+  section p, section li {
+    line-height: 1.6;
+    opacity: 0.9;
+  }
+  
+  ul {
+    padding-left: 20px;
   }
   
   /* Footer */
@@ -79,5 +141,8 @@
     text-align: center;
     padding: 20px;
     opacity: 0.8;
+    font-size: 0.9rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
   }
+
   
