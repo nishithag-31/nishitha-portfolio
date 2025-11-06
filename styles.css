@@ -1,80 +1,40 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: "Poppins", sans-serif;
-  }
-  
-  body {
-    background-color: #f5f7f8;
-    color: #222;
-    line-height: 1.6;
-  }
-  
-  header {
-    background: #00adb5;
+/* Base setup */
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+body {
+    background: linear-gradient(135deg, #1e3c72, #2a5298);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Glassmorphic card style for all sections */
+section {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    padding: 30px;
+    margin: 20px;
+    width: 90%;
+    max-width: 800px;
     color: white;
-    padding: 30px 0;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+    transition: transform 0.3s ease;
+}
+
+/* Hover 3D effect */
+section:hover {
+    transform: translateY(-10px) scale(1.02);
+}
+
+/* Header */
+header {
     text-align: center;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-  }
-  
-  header h1 {
-    font-size: 2.2rem;
-    letter-spacing: 2px;
-  }
-  
-  header p a {
-    color: #fff;
-    text-decoration: underline;
-  }
-  
-  section {
-    margin: 40px auto;
-    width: 85%;
-    background: #fff;
-    padding: 20px;
-    border-radius: 12px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.2s ease-in-out;
-  }
-  
-  section:hover {
-    transform: translateY(-4px);
-  }
-  
-  h2 {
-    color: #00adb5;
-    border-bottom: 2px solid #00adb5;
-    display: inline-block;
-    margin-bottom: 15px;
-    font-weight: 600;
-  }
-  
-  ul {
-    list-style: none;
-    padding-left: 10px;
-  }
-  
-  ul li {
-    padding: 6px 0;
-  }
-  
-  footer {
-    background: #222831;
-    color: #eeeeee;
-    text-align: center;
-    padding: 15px;
-    font-size: 0.9rem;
-    margin-top: 40px;
-  }
-  
-  @media (max-width: 768px) {
-    header h1 {
-      font-size: 1.8rem;
-    }
-    section {
-      width: 95%;
-    }
-  }
-  
+    margin: 40px 0;
+}
+header h1 { font-size: 3rem; margin-bottom: 10px; color: #00faff; }
+header p a { color: #fff; text-decoration: underline; }
+
+/* Add any additional custom styles for projects, skills, etc. */
