@@ -27,7 +27,7 @@
     object-fit: cover;
   }
   
-  h1, h2 {
+  h1, h2, h3 {
     color: var(--teal);
     margin-bottom: 0.5rem;
   }
@@ -40,7 +40,7 @@
     border-radius: 15px;
     backdrop-filter: blur(10px);
     width: 90%;
-    max-width: 800px;
+    max-width: 900px;
     text-align: center;
   }
   
@@ -64,6 +64,20 @@
   .card:hover {
     transform: translateY(-10px);
     box-shadow: 0 8px 25px rgba(0,255,255,0.5);
+  }
+  
+  /* Skills List */
+  .skills-list {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .skills-list li {
+    display: inline-block;
+    margin: 0.5rem 1rem;
+    padding: 0.5rem 1rem;
+    background: rgba(0,255,255,0.1);
+    border-radius: 10px;
   }
   
   /* Contact Form */
