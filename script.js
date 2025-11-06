@@ -1,12 +1,43 @@
-// Floating 3D tilt effect for sections
-const sections = document.querySelectorAll('section');
-sections.forEach(sec => {
-  sec.addEventListener('mousemove', e => {
-    const x = e.clientX / window.innerWidth - 0.5;
-    const y = e.clientY / window.innerHeight - 0.5;
-    sec.style.transform = `translate(${x*20}px, ${y*20}px) rotateX(${y*10}deg) rotateY(${x*10}deg)`;
+// Simple Particle Animation
+const canvas = document.createElement('canvas');
+document.getElementById('particles').appendChild(canvas);
+const ctx = canvas.getContext('2d');
+
+let particles = [];
+const colors = ['#00ffff', '#38bdf8', '#14b8a6'];
+
+function resize() {
+  canvas.width = innerWidth;
+  canvas.height = innerHeight;
+}
+resize();
+window.addEventListener('resize', resize);
+
+for (let i = 0; i < 80; i++) {
+  particles.push({
+    x: Math.random() * canvas.width,
+    y: Math.random() * canvas.height,
+    r: Math.random() * 3 + 1,
+    dx: (Math.random() - 0.5) * 0.8,
+    dy: (Math.random() - 0.5) * 0.8,
+    color: colors[Math.floor(Math.random() * colors.length)],
   });
-  sec.addEventListener('mouseleave', () => {
-    sec.style.transform = 'translate(0,0) rotateX(0) rotateY(0)';
+}
+
+function draw() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  particles.forEach((p) => {
+    ctx.beginPath();
+    ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+    ctx.fillStyle = p.color;
+    ctx.fill();
+
+    p.x += p.dx;
+    p.y += p.dy;
+
+    if (p.x < 0 || p.x > canvas.width) p.dx *= -1;
+    if (p.y < 0 || p.y > canvas.height) p.dy *= -1;
   });
-});
+  requestAnimationFrame(draw);
+}
+draw();
